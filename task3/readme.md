@@ -16,6 +16,22 @@ operations and JOIN queries are also demonstrated.
 
 ---
 
+### Prerequisites
+Make sure you have these installed:
+- Git
+- Docker
+- Docker Compose
+
+### Clone the Repository
+```bash
+git clone https://github.com/astrix0x/foundations_of_cs.git
+```
+
+Navigate to task3:
+```bash
+cd foundations_of_cs/task3/sql
+```
+
 ## Folder Structure
 ```
 task3/
@@ -59,13 +75,19 @@ and reliable database structure.
 - Single table with all data mixed together
 - Student details, club details and membership details 
   all in one place
-- Screenshot: unormal_table.png
+
+![Unnormalised Table](er%20diagram%20and%20images/unormal_table.png)
+
+---
 
 ### First Normal Form (1NF)
 - All cells contain single atomic values
 - Composite primary key added: (StudentID, ClubName)
 - Each row is now uniquely identifiable
-- Screenshot: 1NF_primaryKeys.png
+
+![1NF Primary Keys](er%20diagram%20and%20images/1NF_primaryKeys.png)
+
+---
 
 ### Second Normal Form (2NF)
 - Partial dependencies removed
@@ -73,7 +95,10 @@ and reliable database structure.
   - Student_2NF (StudentID, StudentName, Email)
   - Club_2NF (ClubName, ClubRoom, ClubMentor)
   - Membership_2NF (StudentID, ClubName, JoinDate)
-- Screenshot: student_club_membership_2NF_Tables.png
+
+![2NF Tables](er%20diagram%20and%20images/student_club_membership_2NF_Tables.png)
+
+---
 
 ### Third Normal Form (3NF)
 - Transitive dependencies removed
@@ -81,7 +106,8 @@ and reliable database structure.
 - Updated tables:
   - Club_3NF (ClubID, ClubName, ClubRoom, ClubMentor)
   - Membership_3NF (StudentID, ClubID, JoinDate)
-- Screenshot: club_membership_3NF_Tables.png
+
+![3NF Tables](er%20diagram%20and%20images/club_membership_3NF_Tables.png)
 
 ---
 
@@ -97,11 +123,33 @@ Relationships:
 - One Student can join Many clubs (1 to M)
 - One Club can have Many students (1 to M)
 
-See: er-diagram.png
+![ER Diagram](er%20diagram%20and%20images/er-diagram.png)
 
 ---
 
 ## SQL Operations
+
+### Insert and Select Queries
+- Inserted new student Priya (StudentID 8)
+- Inserted new club Art Club (ClubID C05)
+- Displayed all students and clubs
+
+![Insert and Select](er%20diagram%20and%20images/add_new_Student_and_club.png)
+
+---
+
+### JOIN Query
+Combines Student_2NF, Club_3NF and Membership_3NF
+to display StudentName, ClubName and JoinDate together
+
+![Join Result](er%20diagram%20and%20images/joined_tables.png)
+
+---
+
+### All Final Tables
+![All Tables](er%20diagram%20and%20images/total_tables_at_end.png)
+
+---
 
 ### Tables Created
 | Table | Description |
@@ -114,12 +162,7 @@ See: er-diagram.png
 | Club_3NF | Club table in Third Normal Form |
 | Membership_3NF | Membership table in Third Normal Form |
 
-### Key Queries
-- INSERT new student and club
-- SELECT all students and clubs
-- JOIN query combining all three final tables
-
-See full query output in: output.txt
+Full query output available in: output.txt
 
 ---
 
@@ -197,6 +240,18 @@ Full expected output is available in output.txt
 
 ---
 
+## Reflection
+
+This task demonstrated how normalisation removes redundancy 
+and improves data integrity. Splitting one poorly designed 
+table into three clean tables eliminated all anomalies and 
+made the data much easier to manage. The use of Docker 
+allowed practical implementation of the database in a 
+real environment, and the JOIN query showed how normalised 
+tables can still be combined to retrieve meaningful information.
+
+---
+
 ## Tools Used
 
 - MySQL 9.6.0
@@ -204,5 +259,3 @@ Full expected output is available in output.txt
 - Docker Compose
 - Kali Linux
 - app.diagrams.net (ER Diagram)
-
----
