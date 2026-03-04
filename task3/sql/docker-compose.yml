@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql-task:
+    image: mysql:latest
+    container_name: mysql-task
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: college_club
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./task3_dump.sql:/docker-entrypoint-initdb.d/02_dump.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
