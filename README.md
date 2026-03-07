@@ -148,8 +148,23 @@ and verified on Kali Linux using Docker.
 
 ---
 
+## License
+
+This project is licensed under the **MIT License**.
+
+You are free to:
+- Use
+- Modify
+- Distribute
+- Use commercially
+
+As long as you include the original license and copyright notice.
+
+See the full license here: [MIT License](LICENSE)
+
 ## Author 
 > **Aashish Acharya** ([@astrix0x](https://github.com/astrix0x))
 > First Year BSc (Hons) Ethical Hacking & Cybersecurity
 > Softwarica College of IT & E-Commerce
 > In Collaboration with Coventry University
+>
